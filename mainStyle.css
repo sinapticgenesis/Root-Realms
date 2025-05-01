@@ -1,4 +1,34 @@
 *{
   padding:0;
   margin:0;
+  /* Color Pallet */
+  --Dark: #00201e;
+  --Highlight: #3a5268;
+  --emerald: #007F5F;
+  --lightEmerald: #00E88A;
+
+
+}
+
+#mainNavbar ul{
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--emerald);
+  text-decoration: none;
+
+}
+#mainNavbar ul li{
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+
+}
+
+#frontPageFooter{
+  position:fixed;
+  left:0;
+  bottom:0;
+  text-align: center;
+  width: 100%;
 }
