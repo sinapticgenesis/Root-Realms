@@ -1,5 +1,12 @@
-.App {
-  text-align: center;
+/*Application wide styling */
+:root{
+  margin:0px;
+  padding:0px;
+  /*color pallet */
+  --Dark: #00201e;
+  --Highlight: #3a5268;
+  --emerald: #007F5F;
+  --lightEmerald: #00E88A;
 }
 
 .App-logo {
