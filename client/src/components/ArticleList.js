@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-export default function ArticleSearch() {
+export default function ArticleList() {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -21,8 +21,8 @@ export default function ArticleSearch() {
   }, []);
 
   return (
-    <div className="article-search">
-      <h1>Search Articles</h1>
+    <div className="article-list">
+      <h1>Articles</h1>
       {loading && <p>Loading articles...</p>}
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <ul>
