@@ -61,27 +61,25 @@ export default function ArticleView() {
         }
     };
 
-    const renderContentWithLinks = (text) => {
-        const parts = text.split(/(\[\[.*?\]\])/g);
-    
+    const renderContentWithLinks = (html) => {
+        const parts = html.split(/(\[\[.*?\]\])/g);
+      
         return parts.map((part, index) => {
-            const match = part.match(/\[\[(.*?)\]\]/);
-            if (match) {
-                const title = match[1];
-                const linkedArticle = allArticles.find(a => a.title === title);
-        
-                return linkedArticle ? (
-                <Link key={index} to={`/articles/${linkedArticle._id}`} className="article-link-ref">
-                    {title}
-                </Link>
-                ) : (
-                <span key={index} style={{ color: 'gray' }}>{title}</span>
-                );
+          const match = part.match(/\[\[(.*?)\]\]/);
+          if (match) {
+            const title = match[1];
+            const linkedArticle = allArticles.find(a => a.title === title);
+            if (linkedArticle) {
+              return `<a href="/articles/${linkedArticle._id}" class="article-link-ref">${title}</a>`;
             } else {
-                return <span key={index}>{part}</span>;
+              return `<span style="color: gray">${title}</span>`;
             }
-        });
-    };
+          } else {
+            return part;
+          }
+        }).join('');
+      };
+      
     
     if (error) return <p className="error">{error}</p>;
     if (!article) return <p>Loading...</p>;
@@ -96,8 +94,7 @@ export default function ArticleView() {
             <p><strong>Tags:</strong> {article.tags.join(', ')}</p>
             <p><strong>Visibility:</strong> {article.visibility}</p>
             <hr />
-            <p>{renderContentWithLinks(article.content)}</p>
-            <hr />
+            <div dangerouslySetInnerHTML={{ __html: renderContentWithLinks(article.content)}}></div>
             {isOwner && (
                 <div style={{ marginTop: '1rem' }}>
                     <Link to={`/edit/${article._id}`}>

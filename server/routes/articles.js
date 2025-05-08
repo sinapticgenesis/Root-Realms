@@ -54,6 +54,7 @@ router.post('/', verifyToken, async (req, res) => {
 
         const saved = await newArticle.save();
         res.status(201).json(saved);
+        console.log('Incoming article POST:', req.body);
     } catch (err) {
         console.error('Error saving article:', err);
         res.status(500).json({ message: 'Server error while saving article' });

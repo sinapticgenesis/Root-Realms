@@ -1,11 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Quill from 'quill';
+import 'quill/dist/quill.snow.css';
 import "./ArticleForm.css"
 
 export default function EditArticle() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const editorRef = useRef(null);
+  const [quill, setQuill] = useState(null);
   const [form, setForm] = useState({
     title: '',
     content: '',
@@ -15,6 +19,16 @@ export default function EditArticle() {
     visibility: 'public',
   });
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    // Initialize Quill
+    if (editorRef.current && !quill) {
+      const q = new Quill(editorRef.current, {
+        theme: 'snow'
+      });
+      setQuill(q);
+    }
+  }, [editorRef, quill]);
 
   useEffect(() => {
     const fetchArticle = async () => {
@@ -29,6 +43,9 @@ export default function EditArticle() {
           category,
           visibility,
         });
+        if (quill) {
+            quill.root.innerHTML = content; // Preload content into the editor
+        }
       } catch (err) {
         console.error('Error fetching article:', err);
         setError('Failed to load article for editing.');
@@ -36,7 +53,7 @@ export default function EditArticle() {
     };
 
     fetchArticle();
-  }, [id]);
+  }, [id, quill]);
 
   const handleChange = e => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -44,6 +61,7 @@ export default function EditArticle() {
 
   const handleSubmit = async e => {
     e.preventDefault();
+    const contentHTML = quill?.root.innerHTML || '';
 
     try {
       const updatedData = {
@@ -83,13 +101,14 @@ export default function EditArticle() {
           onChange={handleChange}
           required
         />
-        <textarea
-          name="content"
-          placeholder="Content"
-          value={form.content}
-          onChange={handleChange}
-          required
-          id="content"
+        <div
+          ref={editorRef}
+          style={{
+            height: '200px',
+            marginBottom: '1rem',
+            backgroundColor: 'white',
+            borderRadius: '8px'
+          }}
         />
         <input
           name="tags"

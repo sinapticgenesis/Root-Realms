@@ -29,13 +29,6 @@
     resize: vertical;
 }
 
-#summary {
-    min-height: 70px;
-}
-#content {
-    min-height: 150px;
-}
-
 .article-form button {
     padding: 0.75rem;
     font-size: 1rem;
