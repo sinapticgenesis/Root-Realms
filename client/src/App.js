@@ -11,6 +11,8 @@ import About from './components/About';
 // import Register from './components/Register';
 import Dashboard from './components/Dashboard';
 import ArticleSearch from './components/ArticleSearch';
+import ArticleForm from './components/ArticleForm';
+import ArticleView from './components/ArticleView';
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
         <Route path="/about" element={<About />}></Route>
         <Route path="/dashboard" element={<Dashboard />}></Route>
         <Route path="/articles" element={<ArticleSearch />}></Route>
+        <Route path="/create" element={<ArticleForm />} />
+        <Route path="/articles/:id" element={<ArticleView />} />
       </Routes>
     </Router>
     // <div className="App">

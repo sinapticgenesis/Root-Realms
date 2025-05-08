@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 export default function ArticleSearch() {
   const [articles, setArticles] = useState([]);
@@ -13,7 +14,7 @@ export default function ArticleSearch() {
         setLoading(false);
       })
       .catch(err => {
-        console.error('❌ Error fetching articles:', err);
+        console.error('Error fetching articles:', err);
         setError('Failed to load articles.');
         setLoading(false);
       });
@@ -27,7 +28,7 @@ export default function ArticleSearch() {
       <ul>
         {articles.map(article => (
           <li key={article._id}>
-            <h3>{article.title}</h3>
+            <Link to={`/articles/${article._id}`}>{article.title}</Link>
             <p>{article.summary}</p>
             <i>Tags: {article.tags.join(', ')}</i>
           </li>
