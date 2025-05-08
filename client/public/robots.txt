@@ -1,4 +1,14 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Disallow: /admin/
-Dissallow: /login/
+Disallow: /login/
+Disallow: /User.js
+
+User-agent: FacebookExternalHit
+Disallow: /
+User-agent: OpenAI
+Disallow: /
+User-agent: GPTBot
+Disallow: /
+User-agent: CCBot
+Disallow: /

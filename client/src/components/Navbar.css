@@ -1,5 +1,35 @@
 :root{
     margin: 0;
     padding: 0;
-    background-color: #007F5F;
+    --darkEmerald: #007F5F;
+    --lightEmerald: #00E88A;
+}
+
+#mainNavbar{
+    background-color: var(--darkEmerald);
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    height: 6vh;
+
+}
+#mainNavbar ul{
+    list-style: none;
+    text-decoration: none;
+    display: flex;
+    gap: 5vw;
+    color:inherit;
+    
+}
+
+.navbarLogo{
+    padding: 0%;
+    margin: 0;
+    width: 1vh;
+    height: 0.5vh;
+    scale: 0.4;
+    position:absolute;
+}
+div nav ul li Link{
+    color: black;
 }
