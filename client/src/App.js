@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import './mainStyle.css';
+import './App.css'; //import custom css styling.
 
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -15,7 +15,7 @@ import ArticleSearch from './components/ArticleSearch';
 function App() {
   return (
     <Router>
-      <Navbar />
+      <Navbar/>
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/about" element={<About />}></Route>
