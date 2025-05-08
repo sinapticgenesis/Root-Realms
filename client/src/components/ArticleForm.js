@@ -3,6 +3,8 @@ import axios from 'axios';
 import './ArticleForm.css';
 
 export default function ArticleForm() {
+    const token = localStorage.getItem('token');
+
     const [formData, setFormData] = useState({
         title: '',
         content: '',
@@ -11,13 +13,16 @@ export default function ArticleForm() {
         category: '',
         visibility: 'public'
     });
-
     const [success, setSuccess] = useState('');
     const [error, setError] = useState('');
 
+    if (!token) {
+        return <p>You must be logged in to create an article.</p>;
+    }
+
     const handleChange = e => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
+    };
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -26,7 +31,11 @@ export default function ArticleForm() {
             ...formData,
             tags: formData.tags.split(',').map(tag => tag.trim()) // convert comma list to array
         };
-        const res = await axios.post('http://localhost:5000/api/articles', payload);
+        const res = await axios.post('http://localhost:5000/api/articles', payload, {
+            headers: {
+                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+            });
         setSuccess(`Article created: ${res.data.title}`);
         setFormData({
             title: '', content: '', summary: '', tags: '', category: '', visibility: 'public'

@@ -17,7 +17,7 @@ export default function Home() {
             </p>
             <br></br>
             <p> 
-                No matter what type of world you are creatin you can find our tools useful here. Rather you are creating a world for your fantasy table top game, or designing a cyberpunk dystopia in your next upcoming novel, <br></br>
+                No matter what type of world you are creating you can find our tools useful here. Whether you are creating a world for your fantasy table top game, or designing a cyberpunk dystopia in your next upcoming novel, <br></br>
                 you can use our tools to organize and present your brilliant masterpiece. Create a main page that details the introduction of your world and links to all of your sub-articles expounding upon all the nuances and <br></br>
                 details you have carefully poured your time into. 
             </p>

@@ -19,6 +19,9 @@ app.use(express.json());
 const articleRoutes = require('./routes/articles');
 app.use('/api/articles', articleRoutes);
 
+const authRoutes = require('./routes/auth');
+app.use('/api/auth', authRoutes);
+
 app.get('/', (req, res) => {
     res.send('Root Realms API is running!');
 });
