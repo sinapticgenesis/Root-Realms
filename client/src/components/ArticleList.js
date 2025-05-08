@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import "./ArticleList.css";
 
 export default function ArticleList() {
   const [articles, setArticles] = useState([]);
@@ -21,16 +22,18 @@ export default function ArticleList() {
   }, []);
 
   return (
-    <div className="article-list">
+    <div className="article-list-container">
       <h1>Articles</h1>
       {loading && <p>Loading articles...</p>}
       {error && <p style={{ color: 'red' }}>{error}</p>}
-      <ul>
+      <ul className="article-list">
         {articles.map(article => (
-          <li key={article._id}>
-            <Link to={`/articles/${article._id}`}>{article.title}</Link>
-            <p>{article.summary}</p>
-            <i>Tags: {article.tags.join(', ')}</i>
+          <li key={article._id} className="article-item">
+            <Link to={`/articles/${article._id}`} className="article-link">
+              <h3>{article.title}</h3>
+              <p>{article.summary}</p>
+              <i>Tags: {article.tags.join(', ')}</i>
+            </Link>
           </li>
         ))}
       </ul>
