@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Almendra+SC&display=swap");
 :root{
     margin: 0;
     padding: 0;
@@ -9,11 +10,13 @@
     background-color: var(--darkEmerald);
     margin-top: 0;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     height: 6vh;
+    align-items: center;
 
 }
 #mainNavbar ul{
+    margin-left: 4vh;
     list-style: none;
     text-decoration: none;
     display: flex;
@@ -24,7 +27,7 @@
 
 .navbarLogo{
     padding: 0%;
-    margin: 0;
+    margin: 1px;
     width: 1vh;
     height: 0.5vh;
     scale: 0.4;
@@ -32,4 +35,19 @@
 }
 div nav ul li Link{
     color: black;
+}
+#loginButton {
+    width: 5vw;
+    height: 3vh;
+    margin-right: 10px;
+    background-color: inherit;
+    color: white;
+    border: 1px solid white;
+    cursor: pointer;
+    font-family: 'Alderna',sans-serif;
+  }
+
+#loginButton:hover{
+    background-color: #00E88A;
+    border: #007F5F;
 }

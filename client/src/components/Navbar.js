@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Navbar.css';//css file linked.
 
+let name='Login';
+
 export default function Navbar() {
     return (
         <div>
@@ -15,6 +17,10 @@ export default function Navbar() {
                     <li><Link to="/dashboard">Dashboard</Link></li>
                     <li><Link to="/create">Create</Link></li>
                 </ul>
+                <div>
+                <button id='loginButton'>{name}</button>
+                </div>
+
             </nav>
         </div>
     );
