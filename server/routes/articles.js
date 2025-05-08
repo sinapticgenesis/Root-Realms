@@ -6,16 +6,31 @@ const Article = require('../models/Article');
 // GET all public articles
 router.get('/', async (req, res) => {
     try {
-      console.log("Fetching public articles...");
-      const articles = await Article.find({ visibility: 'public' }).populate('owner', 'username');
-      res.json(articles);
+        const { search, tag, category } = req.query;
+
+        let query = { visibility: 'public' };
+    
+        if (search) {
+          query.title = { $regex: search, $options: 'i' }; // case-insensitive title search
+        }
+    
+        if (tag) {
+          query.tags = tag;
+        }
+    
+        if (category) {
+          query.category = category;
+        }
+    
+        const articles = await Article.find(query).populate('owner', 'username');
+        res.json(articles);
     } catch (err) {
       console.error("Error fetching articles:", err);
       res.status(500).json({ message: 'Failed to fetch articles' });
     }
   });
   
-const verifyToken = require('../middleware/auth');
+const { verifyToken, verifyTokenOptional } = require('../middleware/auth');
 
 // POST /api/articles - create a new article (only if logged in)
 router.post('/', verifyToken, async (req, res) => {
@@ -97,7 +112,7 @@ router.delete('/:id', verifyToken, async (req, res) => {
 });
   
 // GET /api/articles/:id - fetch a single article by ID
-router.get('/:id', async (req, res) => {
+router.get('/:id', verifyTokenOptional, async (req, res) => {
     const articleId = req.params.id;
   
     // Validate ID
@@ -108,6 +123,14 @@ router.get('/:id', async (req, res) => {
     try {
         const article = await Article.findById(articleId).populate('owner', 'username');
         if (!article) return res.status(404).json({ message: 'Article not found' });
+        
+        const isOwner = req.user && req.user.id === article.owner._id.toString();
+        const isPublic = article.visibility === 'public';
+    
+        if (!isPublic && !isOwner) {
+            return res.status(403).json({ message: 'You do not have permission to view this article' });
+        }
+
         res.json(article);
     } catch (err) {
         console.error('Error fetching article:', err);

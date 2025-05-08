@@ -6,7 +6,7 @@ import { AuthContext } from '../AuthContext';
 
 
 
-let name='Login';
+// let name='Login';
 
 export default function Navbar() {
     const { isLoggedIn, username } = useContext(AuthContext);
@@ -15,7 +15,7 @@ export default function Navbar() {
         <header className="navbar">
             <div className='navbarLogo'>
                 <Link to="/">
-                    <img src='/logo192.png'></img>
+                    <img src='/logo192.png' alt="Root Realms logo" />
                 </Link>
             </div>
 

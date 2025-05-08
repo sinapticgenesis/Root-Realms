@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css'; //import custom css styling.
 
 import React from 'react'
