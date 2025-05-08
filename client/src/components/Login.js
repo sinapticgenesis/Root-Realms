@@ -1,18 +1,3 @@
-<<<<<<< Updated upstream
-import React from 'react';
-import { Link } from 'react-router-dom';
-
-
-export default function Login(){
-    return(
-        <div>
-            <form>
-                
-            </form>
-        </div>
-    );
-};
-=======
 import React, { useState } from 'react';
 import axios from 'axios';
 import './AuthForm.css';
@@ -49,4 +34,3 @@ export default function Login() {
         </div>
     );
 }
->>>>>>> Stashed changes

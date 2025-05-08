@@ -38,19 +38,12 @@ export default function Navbar() {
                         </>
                     )}
                 </ul>
-<<<<<<< Updated upstream
-                <div>
-                <button id='loginButton'>{name}</button>
-                </div>
-
-=======
                 {isLoggedIn && (
                     <div>
                         <span>Hi, {username}!</span>
                         <LogoutButton />
                     </div>
                 )}
->>>>>>> Stashed changes
             </nav>
         </header>
     );
