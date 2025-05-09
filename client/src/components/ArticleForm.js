@@ -73,20 +73,12 @@ export default function ArticleForm() {
     
     <div className="article-form-container">
         <form className="article-form" onSubmit={handleSubmit}>
-            <h2>Create New Article</h2>
+            <h1>Create New Article</h1>
             <input name="title" placeholder="Title" value={formData.title} onChange={handleChange} required />
             <textarea id="summary" name="summary" placeholder="Summary" value={formData.summary} onChange={handleChange} />
-            <div
-            ref={editorRef}
-            style={{
-                height: '200px',
-                marginBottom: '1rem',
-                backgroundColor: 'white',
-                borderRadius: '8px'
-            }}
-            id="editor"
-            ></div>
+            <div ref={editorRef} className="quill-editor" id="editor"></div>
             <input name="category" placeholder="Category" value={formData.category} onChange={handleChange} />
+            <input name="tags" placeholder="Tags (comma separated)" value={formData.tags} onChange={handleChange} />
             <select name="visibility" value={formData.visibility} onChange={handleChange}>
             <option value="public">Public</option>
             <option value="private">Private</option>

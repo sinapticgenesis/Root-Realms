@@ -14,6 +14,8 @@
     height: 6vh;
     align-items: center;
     padding: 0 2vw;
+    font-family: 'Almendra SC', serif;
+    
 }
 #mainNavbar ul{
     margin-left: 4vh;
@@ -35,28 +37,43 @@
 div nav ul li Link{
     color: black;
 }
-#loginButton,
-#registerButton {
-    width: 5vw;
-    height: 3vh;
+
+/* Shared button style */
+.navButton {
     margin-right: 5px;
     background-color: inherit;
-    color: white;
-    border: 1px solid white;
+    color:  #3b2f2f;
+    border: none;
     cursor: pointer;
-    font-family: 'Alderna', sans-serif;
+    font-family: 'Almendra SC', serif;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 1rem;
 }
 
-#loginButton:hover{
+/* .navButton:hover {
     background-color: #00E88A;
     border: #007F5F;
-}
+} */
 
 nav a {
-    text-decoration: none; /* Remove underline */
-    color: inherit; /* Inherit color from parent (you can set this to a custom color if you like) */
+    text-decoration: none; 
+    color: inherit; 
   }
   
 navbar a:hover{
     background-color: #00E88A;
+}
+
+.logoutSection {
+    display: flex;
+    align-items: center;
+    gap: 1.25vw;
+    color:  #3b2f2f;
+    font-family: 'Almendra SC', serif;
+    margin-left: auto; /* Push to the right end */
+}
+
+.greeting {
+    font-size: 1rem;
 }

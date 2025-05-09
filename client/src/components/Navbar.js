@@ -4,10 +4,6 @@ import './Navbar.css';//css file linked.
 import LogoutButton from './LogoutButton';
 import { AuthContext } from '../AuthContext';
 
-
-
-// let name='Login';
-
 export default function Navbar() {
     const { isLoggedIn, username } = useContext(AuthContext);
 
@@ -39,9 +35,9 @@ export default function Navbar() {
                     )}
                 </ul>
                 {isLoggedIn && (
-                    <div>
-                        <span>Hi, {username}!</span>
-                        <LogoutButton />
+                    <div className="logoutSection">
+                         <span className="greeting">Hi, {username}!</span>
+                         <LogoutButton />
                     </div>
                 )}
             </nav>

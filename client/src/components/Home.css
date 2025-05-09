@@ -1,0 +1,71 @@
+.home-content {
+    background: #f6e8d0;
+    padding: 2.5rem 3rem;
+    border-radius: 16px;
+    border: 2px solid #e0c9a6;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    margin: 2rem auto;
+    max-width: 900px;
+}
+
+.home-content h1 {
+    font-size: 3rem;
+    color: #5a3e1b;
+    text-shadow: 1px 1px #e0c9a6;
+    margin-bottom: 1.5rem;
+}
+
+.home-content .highlight {
+    color: #7f5f3d;
+}
+
+.intro-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin: 2rem 0;
+    color: #5a3e1b;
+    text-align: left;
+}
+
+.home-content h5 {
+    margin-top: 2rem;
+    font-size: 1.3rem;
+    color: #7f5f3d;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+}
+
+.cta-buttons button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    background: linear-gradient(to bottom, #b08968, #7f5f3d);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Georgia', serif;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease, transform 0.1s ease;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.cta-buttons button:hover {
+    background: linear-gradient(to bottom, #7f5f3d, #5c412b);
+    transform: translateY(-2px);
+}
+
+.home-logo {
+    width: 150px;
+    height: auto;
+    margin-bottom: 1.5rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+}

@@ -96,15 +96,15 @@ export default function ArticleView() {
             <hr />
             <div dangerouslySetInnerHTML={{ __html: renderContentWithLinks(article.content)}}></div>
             {isOwner && (
-                <div style={{ marginTop: '1rem' }}>
+                <div className="action-buttons">
                     <Link to={`/edit/${article._id}`}>
-                        <button style={{ marginRight: '1rem' }}>Edit</button>
+                        <button className="action-button edit-button">Edit</button>
                     </Link>
-                    <button onClick={handleDelete} style={{ backgroundColor: '#d9534f', color: 'white' }}>
+                    <button onClick={handleDelete} className="action-button delete-button">
                         Delete
                     </button>
                 </div>
-            )} 
+            )}
         </div>
     );
 }

@@ -1,0 +1,13 @@
+#globalFooter {
+    text-align: center;
+    padding: 1em;
+    margin-top: 2rem;
+    color: #5a3e1b;
+    font-family: 'Georgia', serif;
+    border-top: 1px solid #e0c9a6;
+}
+
+.main-content {
+    min-height: calc(100vh - 120px); 
+    padding: 2rem;
+}

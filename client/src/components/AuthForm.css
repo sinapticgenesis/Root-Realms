@@ -3,58 +3,78 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: #f7f7f9;
+    padding: 2rem;
 }
-  
+
 .auth-form {
-    background: white;
+    background: #f6e8d0;
     padding: 2rem 2.5rem;
     border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
     max-width: 400px;
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 1.5rem;
+    color: #5a3e1b;
+    font-family: 'Georgia', serif;
+    border: 2px solid #e0c9a6;
 }
-  
+
 .auth-form h2 {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     text-align: center;
-    font-size: 1.6rem;
+    font-size: 2rem;
+    color: #5a3e1b;
+    text-shadow: 1px 1px #e0c9a6;
 }
-  
+
 .auth-form input {
     padding: 0.75rem;
     font-size: 1rem;
     border-radius: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid #cbb38a;
+    background: #fdf1dc;
+    color: #5a3e1b;
+    font-family: 'Georgia', serif;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
-  
+
+.auth-form input:focus {
+    outline: none;
+    border-color: #a1866f;
+    box-shadow: 0 0 12px rgba(161, 134, 111, 0.5);
+}
+
 .auth-form button {
     padding: 0.75rem;
     font-size: 1rem;
-    background-color: #4a90e2;
+    background: linear-gradient(to bottom, #b08968, #7f5f3d);
     color: white;
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background 0.3s ease, transform 0.1s ease;
+    font-family: 'Georgia', serif;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.2);
 }
-  
+
 .auth-form button:hover {
-    background-color: #3b78c2;
+    background: linear-gradient(to bottom, #7f5f3d, #5c412b);
+    transform: translateY(-2px);
 }
-  
+
 .auth-form .error-message {
     color: red;
     text-align: center;
     font-size: 0.95rem;
+    font-weight: bold;
 }
-  
+
 .auth-form .success-message {
     color: green;
     text-align: center;
     font-size: 0.95rem;
+    font-weight: bold;
 }
-  

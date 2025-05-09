@@ -1,14 +1,13 @@
-import './App.css'; //import custom css styling.
-
-import React from 'react'
+import './App.css';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
+import Layout from './components/Layout';
 import Home from './components/Home';
 import About from './components/About';
 import Login from './components/Login';
 import Register from './components/Register';
-// import Dashboard from './components/Dashboard';
 import ArticleList from './components/ArticleList';
 import ArticleForm from './components/ArticleForm';
 import ArticleView from './components/ArticleView';
@@ -16,39 +15,24 @@ import MyArticles from './components/MyArticles';
 import EditArticle from './components/EditArticle';
 
 function App() {
-  return (
-    <Router>
-      <Navbar/>
-      <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/about" element={<About />}></Route>
-        {/* <Route path="/dashboard" element={<Dashboard />}></Route> */}
-        <Route path="/articles" element={<ArticleList />}></Route>
-        <Route path="/create" element={<ArticleForm />} />
-        <Route path="/articles/:id" element={<ArticleView />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/dashboard" element={<MyArticles />} />
-        <Route path="/edit/:id" element={<EditArticle />} />
-      </Routes>
-    </Router>
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <p>
-    //       Edit <code>src/App.js</code> and save to reload.
-    //     </p>
-    //     <a
-    //       className="App-link"
-    //       href="https://reactjs.org"
-    //       target="_blank"
-    //       rel="noopener noreferrer"
-    //     >
-    //       Learn React
-    //     </a>
-    //   </header>
-    // </div>
-  );
+    return (
+        <Router>
+          <Navbar />
+            <Routes>
+                <Route path="/" element={<Layout />}>
+                    <Route index element={<Home />} />
+                    <Route path="about" element={<About />} />
+                    <Route path="articles" element={<ArticleList />} />
+                    <Route path="create" element={<ArticleForm />} />
+                    <Route path="articles/:id" element={<ArticleView />} />
+                    <Route path="login" element={<Login />} />
+                    <Route path="register" element={<Register />} />
+                    <Route path="dashboard" element={<MyArticles />} />
+                    <Route path="edit/:id" element={<EditArticle />} />
+                </Route>
+            </Routes>
+        </Router>
+    );
 }
 
 export default App;
