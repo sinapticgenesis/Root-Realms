@@ -9,7 +9,7 @@ export default function Home() {
     return (
         <div className="webpageBody">
             <div id="mainBody" className="home-content">
-                {/* <img src={logo} alt="Root Realms Logo" className="home-logo" /> */}
+                <img src="/Assets/Root-Realms Logo.png" alt="Root Realms Logo" className="home-logo" />
 
                 <h1>Welcome to <span className="highlight">Root Realms!</span></h1>
 
