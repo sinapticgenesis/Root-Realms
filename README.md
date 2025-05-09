@@ -5,6 +5,12 @@ Root Realms is a full-stack worldbuilding application designed to help creators 
 
 This project was completed for Web Application Development 1, however; anyone that finds this web application useful would be free to use it's organizational features.
 
+Root Realms was built using the full MERN stack, featuring a clean and responsive React frontend with a parchment-inspired aesthetic. The site allows users to create richly formatted wiki-style articles using a custom Quill editor and easily cross-link content with intuitive [[Article Name]] references. Navigation is seamless thanks to React Router, and all data interactions are handled through secure API calls using Axios.
+
+On the backend, we developed a robust Express server connected to MongoDB via Mongoose, supporting complete CRUD operations for articles and user accounts. User authentication and authorization ensure that private content remains secure, while public articles are easily shareable. A comprehensive seed script was created to populate the database with sample content, providing immediate examples of the platform’s features for demonstration purposes.
+
+The application is fully integrated, providing an end-to-end solution for content management and worldbuilding. Project documentation and a detailed presentation walk through the design decisions, development process, and key features implemented.
+
 ### Features ###
 * Article Creation: Create richly formatted wiki-style articles.
 * Wiki Linking: Seamlessly cross-reference articles using [[Article Name]] syntax.
