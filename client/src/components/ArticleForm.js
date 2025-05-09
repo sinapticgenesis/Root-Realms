@@ -41,24 +41,40 @@ export default function ArticleForm() {
     const handleSubmit = async e => {
         e.preventDefault();
 
-        const contentHTML = quill?.root.innerHTML || '';
+        const contentHTML = quill?.root.innerHTML.trim() || '';
+
+        // Basic Validation Check
+        if (
+            !formData.title.trim() ||
+            !formData.summary.trim() ||
+            !formData.tags.trim() ||
+            !formData.category.trim() ||
+            !contentHTML
+        ) {
+            setError('Please fill out all fields before submitting.');
+            setSuccess('');
+            return;
+        }
 
         try {
             const payload = {
                 ...formData,
                 content: contentHTML,
-                tags: formData.tags.split(',').map(tag => tag.trim()) // convert comma list to array
+                tags: formData.tags.split(',').map(tag => tag.trim())
             };
+
             const res = await axios.post('http://localhost:5000/api/articles', payload, {
                 headers: {
-                        Authorization: `Bearer ${localStorage.getItem('token')}`
-                    }
-                });
+                    Authorization: `Bearer ${localStorage.getItem('token')}`
+                }
+            });
+
             setSuccess(`Article created: ${res.data.title}`);
             setError('');
             setFormData({
                 title: '', content: '', summary: '', tags: '', category: '', visibility: 'public'
             });
+
             if (quill) {
                 quill.setContents([]);
             }
@@ -69,17 +85,18 @@ export default function ArticleForm() {
         }
     };
 
+
   return (
     
     <div className="article-form-container">
         <form className="article-form" onSubmit={handleSubmit}>
             <h1>Create New Article</h1>
             <input name="title" placeholder="Title" value={formData.title} onChange={handleChange} required />
-            <textarea id="summary" name="summary" placeholder="Summary" value={formData.summary} onChange={handleChange} />
-            <div ref={editorRef} className="quill-editor" id="editor"></div>
-            <input name="category" placeholder="Category" value={formData.category} onChange={handleChange} />
-            <input name="tags" placeholder="Tags (comma separated)" value={formData.tags} onChange={handleChange} />
-            <select name="visibility" value={formData.visibility} onChange={handleChange}>
+            <textarea id="summary" name="summary" placeholder="Summary" value={formData.summary} onChange={handleChange} required />
+            <div ref={editorRef} className="quill-editor" id="editor" required ></div>
+            <input name="category" placeholder="Category" value={formData.category} onChange={handleChange} required />
+            <input name="tags" placeholder="Tags (comma separated)" value={formData.tags} onChange={handleChange} required />
+            <select name="visibility" value={formData.visibility} onChange={handleChange} required>
             <option value="public">Public</option>
             <option value="private">Private</option>
             </select>

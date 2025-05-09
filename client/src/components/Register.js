@@ -25,6 +25,7 @@ export default function Register() {
     return (
         <div className="auth-form-container">
         <form className="auth-form" onSubmit={handleSubmit}>
+            <img src="/assets/Root-Realms Logo.png" alt="Root Realms Logo" className="auth-logo" />
             <h2>Register</h2>
             <input name="username" placeholder="Username" onChange={handleChange} required />
             <input name="email" type="email" placeholder="Email" onChange={handleChange} required />
