@@ -76,6 +76,7 @@ ROOT-REALMS/
 ### Example Seed User ###
 * Username: seeduser
 * Password: password123
+  
 Use this account after seeding the database to explore the example articles and features.
 
 ### Project Credits ###
