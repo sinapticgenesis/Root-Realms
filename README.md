@@ -83,5 +83,22 @@ ROOT-REALMS/
 * Password: password123
 Use this account after seeding the database to explore the example articles and features.
 
+### Project Credits ###
+
+```
+Corra Stimson   |   Lauren Bissey
+---------------------------------
+UI Design       |   React Components
+Code Refactors  |   Node JS configuration
+CSS Styling     |   CSS Styling
+Media Creation  |   Mongoose Setup
+Database Design |   NPM configuration
+```
+
+### Video Walkthrough ###
+_YouTube Link_:
+
 ### License ###
 This project is licensed under the GNU General Public License v3.0.
+
+
