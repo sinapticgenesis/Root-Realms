@@ -39,12 +39,7 @@ The application is fully integrated, providing an end-to-end solution for conten
    cd ../client
    npm install
    ```
-3. Create a .env file in the server/ directory with the following:
-    ```
-    MONGO_URI=mongodb://localhost:27017/root_realms
-    JWT_SECRET=your_secret_key
-    ```
-4. Run the development environment:
+3. Run the development environment:
    ```
     # In /server
     npm run dev
