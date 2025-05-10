@@ -92,7 +92,7 @@ Database Design |   NPM configuration
 ```
 
 ### Video Walkthrough ###
-_YouTube Link_:
+_YouTube Link_:  [link]([https://youtu.be/9SScUgeqYYs])
 
 ### License ###
 This project is licensed under the GNU General Public License v3.0.
